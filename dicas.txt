@@ -1,0 +1,378 @@
+function check_form(){
+    var nome = document.getElementById('nome').value;
+    var tel = document.getElementById('telefone').value;
+    var dtn = document.getElementById('dataNascimento').value;
+    var opGenero1 = document.getElementById('rGenero1').checked;
+    var opGenero2 = document.getElementById('rGenero2').checked;
+    var opGenero3 = document.getElementById('rGenero3').checked;
+    var endereco = document.getElementById('address').value;
+    var vaga = document.getElementById('vaga').value;
+    if(nome==''){
+        alert("Preencha o nome");
+        return false;
+    }
+    if(tel==''){
+        alert("Preencha o telefone");
+        return false;
+    }
+    if(dtn==''){
+        alert("Preencha a data de nascimento");
+        return false;
+    }
+    if((opGenero1==false)&&(opGenero2==false)&&(opGenero3==false)){
+        alert("Selecione uma opção de gênero");
+        return false;
+    }    
+    if(endereco==''){
+        alert("Preencha o endereço");
+        return false;
+    }
+    if(vaga==0){
+        alert("Escolha uma vaga");
+        return false;
+    }   
+        return true;
+}
+
+java script
+
+///////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagas.com</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="titulo"></div>
+    <div class="ladoAl">
+         <div class="laranja">
+            <form method="POST" action="send.php" onsubmit="return check_form()">
+                <label>Nome: </label><input type="text" maxlength="40" name="nome" id="nome"><BR>
+                <label>Telefone: </label><input type="number" maxlength="12" name="telefone" placeholder="11999999999" id="telefone"><BR><BR>
+                <label>Data de Nascimento: </label><input type="date" name="dtNascimento" id="dataNascimento"><BR><BR>
+                <label>Gênero: </label><BR>
+                <input type="radio" name="genero" value="Masculino" id="rGenero1"><label> Masculino</label>
+                    <input type="radio" name="genero" value="Feminino" id="rGenero2"><label> Feminino</label>
+                    <input type="radio" name="genero" value = "Outro" id="rGenero3"><label> Outro</label><BR><BR>
+                <label>Endereço Completo: </label>
+                <input type="text" maxlength="200" name="enderecoCompleto" id="address"><BR>
+                <label>Escolha a vaga a se candidatar: </label>
+                <select name="vaga" id="vaga">
+                    <option value="0" selected>Faça sua escolha</option>
+                    <option value="1420">Programador Front-End</option>
+                    <option value="1580">Programador Back-End</option>
+                    <option value="2140">Cientista de Dados</option>
+                    <option value="3247">Design UX/UI</option><BR>
+                </select>
+                      <input type="submit" value="Enviar" id="form_button">
+            </form>
+        </div>
+        <div class="rosa">
+            <div class="marron"></div>
+            <div class="azul_cinza"></div>
+            <div class="violeta"></div>
+         </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+/////////////////////////////////////////////////////////////////////
+
+<?php
+
+$nomeCompleto=$_POST["nome"];
+$telefone=$_POST["telefone"];
+$dataNascimento=$_POST["dtNascimento"];
+$genero=$_POST["genero"];
+$endereco=$_POST["enderecoCompleto"];
+$vaga=$_POST["vaga"];
+
+
+
+echo "<b>Seus dados foram enviados com sucesso"
+
+
+
+
+
+?>
+
+//////////////////////////////////////////////////////////
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+*{
+    margin:0;
+}
+
+html {
+  font-family: 'Montserrat', Arial, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #F2F3EB;
+}
+
+button {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input, select, textarea {
+  color: #5A5A5A;
+  font: inherit;
+  margin: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+textarea {
+  overflow: auto;
+}
+
+#container {
+  border: solid 3px #474544;
+  max-width: 768px;
+  margin: 60px auto;
+  position: relative;
+}
+
+form {
+  padding: 0px;
+  margin: 10px;
+}
+
+h1 {
+  color: #474544;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.underline {
+  border-bottom: solid 2px #474544;
+  margin: -0.512em auto;
+  width: 80px;
+}
+
+.icon_wrapper {
+  margin: 50px auto 0;
+  width: 100%;
+}
+
+.icon {
+  display: block;
+  fill: #474544;
+  height: 50px;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.email {
+	float: right;
+	width: 45%;
+}
+
+input[type='text'], [type='email'], select, textarea {
+	background: none;
+  border: none;
+	border-bottom: solid 2px #474544;
+	color: #474544;
+	font-size: 1.000em;
+  font-weight: 400;
+  letter-spacing: 1px;
+	margin: 0em 0 1.875em 0;
+	padding: 0 0 0.875em 0;
+  text-transform: uppercase;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+input[type='text']:focus, [type='email']:focus, textarea:focus {
+	outline: none;
+	padding: 0 0 0.875em 0;
+}
+
+.message {
+	float: none;
+}
+
+.name {
+	float: left;
+	width: 45%;
+}
+
+select {
+  background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.subject {
+  width: 100%;
+}
+
+.telephone {
+  width: 100%;
+}
+
+textarea {
+	line-height: 150%;
+	height: 150px;
+	resize: none;
+  width: 100%;
+}
+
+::-webkit-input-placeholder {
+	color: #474544;
+}
+
+:-moz-placeholder { 
+	color: #474544;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: #474544;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: #474544;
+}
+
+#form_button {
+  background: none;
+  border: solid 2px #474544;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+#form_button:hover {
+  background: #474544;
+  color: #F2F3EB;
+}
+
+@media screen and (max-width: 768px) {
+  #container {
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 26px;
+  }
+  
+  .underline {
+    width: 68px;
+  }
+  
+  #form_button {
+    padding: 15px 25px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 18px;
+  }
+  
+  .icon {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .underline {
+    width: 53px;
+  }
+  
+  input[type='text'], [type='email'], select, textarea {
+    font-size: 0.875em;
+  }
+}
+
+.verde{
+    width: 100%;
+    height: 20vh;
+    background-image: url("banner.png");
+    background-size: cover;
+}
+
+.azul{
+
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: row;
+}
+.laranja{
+    width: 40%;
+    height: 80vh;
+    background-color: orange;
+    opacity: 0.7;
+}
+.rosa{
+width: 60%;
+height: 80vh;
+background-color: purple;
+display: flex;
+flex-direction: column;
+}
+.marron{
+    width: 100%;
+    height: 20vh;
+    background-color: brown ;
+}
+.azul_cinza{
+    width: 100%;
+    height: 30vh;
+    background-color: aquamarine ;
+}
+
+.violeta{
+    width: 100%;
+    min-height: 50vh;
+    background-color: blueviolet ;
+}
+  

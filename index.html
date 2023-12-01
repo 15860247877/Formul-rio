@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="header"></div>
+    <div class="main"></div>
+    <div class="ladoB"></div>
+    <div class="ladoA">
+                <form method="POST" action="send.php" onsubmit="return check_form()">
+                <label>Nome: </label><input type="text" maxlength="40" name="nome" id="nome"><BR><BR>
+                <label>Telefone: </label><input type="number" maxlength="12" name="telefone" placeholder="11999999999" id="telefone"><BR><BR>                
+                <label>Gênero: </label><BR>
+                <input type="radio" name="genero" value="Masculino" id="rGenero1"><label> Masculino</label>
+                    <input type="radio" name="genero" value="Feminino" id="rGenero2"><label> Feminino</label>
+                    <input type="radio" name="genero" value = "Outro" id="rGenero3"><label> Outro</label><BR><BR>                
+                <label>Tipo de contato: </label>
+                <select name="contato" id="contato">
+                    <option value="0" selected>Faça sua escolha</option>
+                    <option value="001">Contato</option>
+                    <option value="002">Sugestão</option>
+                    <option value="003">Crítica</option>                    
+                </select><BR><BR>
+                      <input type="textarea" name="mensagem" maxlength="1000">
+                </div>
+            </form>    
+    <script src="script.js"></script>    
+</body>
+</html>
